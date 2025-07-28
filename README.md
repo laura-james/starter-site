@@ -1,1 +1,1 @@
-# starter-site
+# Course Pal starter site
