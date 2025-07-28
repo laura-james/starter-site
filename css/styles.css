@@ -1,0 +1,416 @@
+/* =======================
+   BASE STYLES
+======================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+section {
+    margin: 2rem;
+}
+
+label {
+    width: 140px;
+    display: inline-flex;
+}
+
+.categories label {
+    width: 300px;
+}
+
+input,
+textarea,
+select {
+    padding: 0.5rem;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul {
+    margin-bottom: 0px !important;
+}
+
+.error {
+    color: red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #005f73;
+    margin: 10px 0;
+    font-weight: bold;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid #005f73;
+    padding: 0.5rem;
+}
+
+th {
+    background-color: #005f73;
+    color: white;
+}
+
+th a{
+    color: white;
+}
+/* =======================
+   HEADER & FOOTER
+======================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #028090;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logolink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.sitename {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.welcome {
+  margin: 0;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #e0fbfc;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #aaa;
+    font-size: 0.9rem;
+    display: flex;
+}
+
+footer .left {
+    width: 49%;
+    text-align: left;
+
+}
+
+footer .right {
+    width: 49%;
+    text-align: right;
+ 
+}
+
+/* =======================
+   NAVIGATION
+======================= */
+nav {
+    width: 100%;
+    background-color: #028090;
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+nav a,
+nav ul li a {
+    color: #fff;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #56cfe1;
+    color: #003b4c;
+}
+
+nav a.active {
+    background-color: #00798c;
+    color: white;
+    font-weight: 1000;
+}
+
+nav a.logolink {
+    align-self: flex-start;
+    flex-grow: 1;
+}
+.welcome{
+    float:right;
+}
+/* =======================
+   HOME LAYOUT
+======================= */
+.homelayout {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.text,
+.image {
+    width: 49%;
+}
+
+.image img {
+    width: 100%;
+}
+
+/* =======================
+   COURSES GRID
+======================= */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    background: #d4eef1;
+}
+.course-card-main:hover {
+    transform: none;
+    background: none;
+}
+
+.course-card img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.course-card h4 {
+    margin: 0 0 0.5rem;
+    color: #028090;
+    font-size: 1.2rem;
+}
+/* subtitle on course-card */
+.course-card h3 {
+    margin: 0 0 0.5rem;
+    color: #3c124a;
+    font-size: 1.2rem;
+}
+
+.course-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.course-card a {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+}
+.course-card-main{
+    display: flex;
+    justify-content:  space-between ;
+}
+
+.course-card-main img {
+
+    width:45%;
+    margin-right:5%;
+    height:auto;
+}
+.course-card-main .course-details {
+    width:50%;
+}
+.status{
+    font-weight:bold;
+    color:#b00911;
+}
+.sortlink{
+    color:white;
+    text-decoration: none;
+}
+.course_date{
+    font-weight:bold;
+}
+
+/* =======================
+   COURSE BLOCKS
+======================= */
+.layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30%);
+    align-content: space-around;
+    justify-content: space-around;
+    gap: 10px 10px;
+}
+
+.block {
+    border: 1px solid #000;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+}
+
+.block:hover {
+    background-color: #d4e6e9;
+}
+
+.block a {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+}
+
+.block a p {
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.block img {
+    float: right;
+}
+
+
+
+/* =======================
+   BUTTONS
+======================= */
+.btn {
+    background-color: #028090;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: black 2px 2px 4px;
+}
+.btn_admin {
+    background-color: #b00967;
+}
+.btn_cancel {
+    background-color: #b00911;
+}
+.btn:hover {
+    background-color: #005f73;
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+td .btn{
+    margin:0px 5px;
+}
+/* =======================
+   MEDIA QUERIES
+======================= */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    .header-top,
+    nav,
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+     a.logolink {
+        align-self: inherit;
+    }
+
+   a.logolink img {
+        height: 40px;
+    }
+    .sitename{
+        font-size: 1.4 rem;
+    }
+
+    .homelayout,
+    footer,
+    .layout {
+        flex-direction: column;
+        text-align: center;
+    }
+   .course-card-main{
+        flex-direction: column;
+    } 
+    .course-card-main img {
+
+        width:100%;
+        margin-right:0;
+    }
+    .course-card-main .course-details {
+        width:100%;
+    }
+    .image,
+    .text,
+    .block 
+    .header-left,
+    .header-right,
+    footer .left,
+    footer .right
+    {
+        width: 100% !important;
+        margin-top: 15px;
+    }
+footer .left,
+    footer .right{
+        text-align: center;
+    }
+}
