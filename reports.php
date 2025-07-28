@@ -34,7 +34,7 @@
     <div class="container">
       <section>
         <h1>Courses Reports</h1>
-        <!-- list of courses to appear here -->
+        <!-- list of courses to appear here for administrators -->
       </section>
           
       <!-- footer -->
