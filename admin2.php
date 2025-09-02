@@ -1,8 +1,7 @@
-<?php session_start();
-ini_set('display_errors', 1); ?>
+<?php session_start();?>
 <?php include "includes/header.php" ?>
 <?php include "includes/connectdb.php" ?>
-    <section>
+<section>
     <h2>Course Admin</h2>
     <p><a href='course-add.php' class="btn">Add New Course</a> </p>
     <br>
@@ -13,7 +12,7 @@ ini_set('display_errors', 1); ?>
           <input type="submit" class="btn" value="Search">
     </form>
     </div>
-<?php
+   <?php
    if (isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == true) { 
     $sql = "SELECT *,
     (SELECT COUNT(bookings.booking_id) FROM `bookings` where bookings.course_id = courses.course_id) as total 
@@ -71,6 +70,6 @@ ini_set('display_errors', 1); ?>
     } else { 
       //redirect if not logged in
       header("Location: index.php");
-      } ?>
+    } ?>
     </section>
 <?php include "includes/footer.php" ?>

@@ -2,19 +2,37 @@
 <?php include "includes/connectdb.php" ?>
 <section>
         <h2>Courses List</h1>
-        <!-- list of courses to appear here -->
+         <div class="searchbox">
+            <form  method = "get">
+                    <label>Search:</label>
+                    <input type = "text" name = "search">          
+                    <input type="submit" value="Search">
+            </form>
+        </div>
         <?php   
-        $allowed_columns = ['date', 'course_id', 'name', 'description', 'category_name']; // column names for sorting
-        if (!empty($_GET["order"]) && in_array($_GET["order"], $allowed_columns)) {
-            $sortorder = $_GET["order"];
-        } else {
-            $sortorder = "date"; // default
-        }
-        $sql = "SELECT * FROM courses, categories WHERE courses.category_id = categories.category_id ORDER BY $sortorder";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $sql = "SELECT * FROM courses,categories 
+            WHERE courses.category_id = categories.category_id";
 
+        if (!empty($_GET["search"]) ){ //check if there is something in search
+            $sql .= " AND (category_name LIKE ?";
+            $sql .= " OR name LIKE ?";
+            $sql .= " OR description LIKE ?)";
+            }
+            $allowed_columns = ['date', 'course_id', 'name', 'description', 'category_name']; // column names for sorting
+            if (!empty($_GET["order"]) && in_array($_GET["order"], $allowed_columns)) {
+                $sortorder = $_GET["order"];
+            } else {
+                $sortorder = "date"; // default
+            }
+            $sql .= " ORDER BY $sortorder";
+            $stmt = $conn->prepare($sql);
+            if (!empty($_REQUEST["search"]) ){
+            $search = "%".$_GET["search"]."%";
+            $stmt->bind_param("sss", $search,$search,$search);
+            }
+            
+            $stmt->execute();
+            $result = $stmt->get_result();
 
         if (!$result) {
             echo "Error description: " . $conn -> error;
