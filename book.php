@@ -9,7 +9,7 @@
       $sql = "SELECT capacity,(SELECT COUNT(bookings.booking_id) FROM `bookings` where 
       bookings.course_id = courses.course_id) as total_bookings FROM courses WHERE course_id = ?";
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param("i", $id);
+      $stmt->bind_param("i", $course_id);
       $stmt->execute();
       $result = $stmt->get_result();
 
@@ -18,6 +18,8 @@
             $total_bookings = $row["total_bookings"];
             $capacity = $row["capacity"]; 
         }
+      }else{
+        echo "No records ".$sql." ".$course_id;
       }
 
       if ($total_bookings >= $capacity){
