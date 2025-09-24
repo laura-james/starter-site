@@ -27,7 +27,7 @@
         <?php }?>
         </div>
         <div class="image">
-            <!-- featured courses to go here -->
+          <?php include "includes/featured-courses2.php" ?>
         </div>
     </section>
         
